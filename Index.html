@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f8edeb; font-family: 'Georgia', serif;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 800px; background-color: #FFD1DC; margin-top: 20px; border-radius: 25px; border: 1px solid #fcd5ce;">
+        <tr>
+            <td align="center" style="padding: 50px 30px;">
+                <div style="font-size: 50px; color: #e5989b; margin-bottom: 10px;">✨ 💖 ✨</div>
+                
+                <h1 style="color: #b56576; font-size: 32px; font-weight: normal; font-style: italic; margin-bottom: 20px;">
+                    Happy Valentines dear <strong>Gaurav❤️</strong>...
+                </h1>
+
+                <div class="card" id="mainCard" style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 600px; width: 90%; position: relative; text-align: center;">
+                    <div id="questionArea">
+                        <div style="font-size: 50px;">💌</div>
+                        <h1 style="color: #ff4d6d; font-size: 24px;">Will you be my Valentine?</h1>
+                        <div class="buttons" style="display: flex; justify-content: center; gap: 20px; margin-top: 30px; min-height: 50px;">
+                            <button id="yesBtn" onclick="showLove()" style="padding: 12px 25px; font-size: 18px; border: none; border-radius: 50px; cursor: pointer; background-color: #ff4d6d; color: white; font-weight: bold;">YES</button>
+                            <button id="noBtn" onmouseover="moveNo()" onclick="moveNo()" style="padding: 12px 25px; font-size: 18px; border: none; border-radius: 50px; cursor: pointer; background-color: #adb5bd; color: white;">NO</button>
+                        </div>
+                    </div>
+
+                    <div id="loveArea" style="display: none;">
+                        <div style="font-size: 40px; margin-bottom: 10px;">💋😘</div>
+                        <h1 style="color: #ff4d6d; font-size: 24px;">🎀Letter💟 for you!🎀</h1>
+                        <div style="color: #6d597a; font-size: 15px; line-height: 1.4; text-align: center; margin-bottom: 10px;">
+                            <p>They say some people are meant to be the whole book, while others are just a chapter. Honestly, knowing that doesn't make it any easier to watch the pages turn.</p>
+                            <p>I just wanted to thank you for being my Valentine for this season dear Gaurav, and for the way you brightened my world while you were in it. Even though we’re only crossing paths for a little while, the mark you’ve left on me is permanent. You taught me how to feel again, how to find the hidden beauty in the smallest everyday moments.</p>
+                            <p>It is a strange, quiet kind of ache to miss someone who is still standing right in front of me, knowing that eventually, we will belong to different stories. When I am with you, words fail me, my mind goes quiet, and I find myself just watching you in this kind of silent praise. My eyes always wanted to see you just like this, Gaurav😘.</p>
+                            <p>We never started with 'I love you,' and we never promised forever, but my heart feels every single second we spend together. You are the beautiful, short story I will read over and over again. Maybe in this life I don't get to be your 'always,' but these moments are my forever treasure.</p>
+                            <p>We are two ships passing in the night, sharing a lantern's glow before the tide pulls us toward different horizons.</p>
+                            <p>Thank you for being my beautiful 'now.' I’ll carry your warmth long after the season changes.</p>
+                        </div>
+                        <p>With love, <span style="color: #ff4d6d; font-weight: bold;">Chandini 🫶❤️</span></p>
+                    </div>
+                </div>
+
+                <script>
+                    function moveNo() {
+                        const noBtn = document.getElementById('noBtn');
+                        noBtn.style.position = 'absolute';
+                        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+                        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+                        noBtn.style.left = x + 'px';
+                        noBtn.style.top = y + 'px';
+                    }
+
+                    function showLove() {
+                        document.getElementById('questionArea').style.display = 'none';
+                        document.getElementById('loveArea').style.display = 'block';
+                        document.getElementById('noBtn').style.display = 'none';
+
+                        // 2. Party Popper Trigger
+                        var end = Date.now() + (3 * 1000);
+                        var colors = ['#ff4d6d', '#ffffff', '#ffafcc'];
+
+                        (function frame() {
+                            confetti({
+                                particleCount: 3,
+                                angle: 60,
+                                spread: 55,
+                                origin: { x: 0, y: 0.8 },
+                                colors: colors
+                            });
+                            confetti({
+                                particleCount: 3,
+                                angle: 120,
+                                spread: 55,
+                                origin: { x: 1, y: 0.8 },
+                                colors: colors
+                            });
+
+                            if (Date.now() < end) {
+                                requestAnimationFrame(frame);
+                            }
+                        }());
+                    }
+                </script>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
